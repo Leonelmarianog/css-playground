@@ -37,6 +37,10 @@ section {
   margin-block: 60px;
 }
 
+a {
+  color: #2b930b;
+}
+
 .wrapper {
   max-inline-size: 1000px;
   margin-inline: auto;

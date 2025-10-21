@@ -87,3 +87,15 @@ section {
     margin-right: auto;
   }
 }
+
+.image-bg {
+  background-color: #227375;
+  background-image: url("../assets/simple-steps.jpg");
+  color: #fff;
+  padding-block: 20px;
+  padding-inline: 40px;
+  border: 5px solid #284ecc;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

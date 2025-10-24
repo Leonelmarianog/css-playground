@@ -19,11 +19,11 @@ body {
 
 .container-grid {
   display: grid;
-  grid-template-rows: 350px 1fr;
+  grid-template-rows: 1fr;
 
   @media (width > 1200px) {
     grid-template-rows: none;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr 1fr;
     block-size: 100dvh;
     block-size: 100vh;
   }
@@ -38,4 +38,50 @@ body {
 }
 .container-grid > div:nth-child(2) {
   background-color: green;
+}
+
+.card-front,
+.card-back {
+  position: relative;
+  color: #fff;
+  max-inline-size: min-content;
+  min-inline-size: min-content;
+}
+
+.card-front > *:not(.card-front__bg),
+.card-back > *:not(.card-back__bg) {
+  position: absolute;
+}
+
+.card-front__logo {
+  top: 30px;
+  left: 30px;
+}
+
+.card-front__number {
+  top: 55%;
+  left: 30px;
+  font-size: 1.75rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-front__name {
+  top: 80%;
+  left: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-front__expiry {
+  top: 80%;
+  right: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-back__cvc {
+  top: 45%;
+  right: 60px;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
 }

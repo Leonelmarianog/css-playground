@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+body {
+  background-color: rgb(85, 59, 92);
+  font-family: Space Grotesk, sans-serif;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-rows: 350px 1fr;
+
+  @media (width > 1200px) {
+    grid-template-rows: none;
+    grid-template-columns: 350px 1fr;
+    block-size: 100dvh;
+    block-size: 100vh;
+  }
+}
+
+.container-grid > div:nth-child(1) {
+  background-color: rgb(60, 14, 66);
+  background-image: url("../images/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.container-grid > div:nth-child(2) {
+  background-color: green;
+}

@@ -12,45 +12,75 @@ img {
   display: block;
 }
 
-body {
-  background-color: rgb(85, 59, 92);
-  font-family: Space Grotesk, sans-serif;
+html {
+  --bg-layout-top-grow-percentage: 1;
+
+  @media (width > 450px) {
+    --bg-layout-top-grow-percentage: 1.25;
+  }
+
+  @media (width > 650px) {
+    --bg-layout-top-grow-percentage: 1.5;
+  }
 }
 
-.container-grid {
-  display: grid;
-  grid-template-rows: 1fr;
+body {
+  font-family: Space Grotesk, sans-serif;
+  min-inline-size: 360px;
+}
 
-  @media (width > 1200px) {
+.layout-bg {
+  display: grid;
+  grid-template-rows: calc(215px * var(--bg-layout-top-grow-percentage)) calc(
+      215px * var(--bg-layout-top-grow-percentage)
+    );
+
+  @media (width > 1000px) {
     grid-template-rows: none;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
     block-size: 100dvh;
     block-size: 100vh;
   }
 }
 
-.container-grid > div:nth-child(1) {
-  background-color: rgb(60, 14, 66);
+.layout-bg__top {
+  position: relative;
+  background-color: rgb(43, 0, 100);
   background-image: url("../images/bg-main-mobile.png");
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
-.container-grid > div:nth-child(2) {
-  background-color: green;
+
+.layout-bg__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-preview {
+  position: absolute;
+  inline-size: calc(360px * var(--bg-layout-top-grow-percentage));
+  block-size: 100%;
+  inset: 0;
+  margin: auto;
 }
 
 .card-front,
 .card-back {
-  position: relative;
+  position: absolute;
   color: #fff;
   max-inline-size: min-content;
-  min-inline-size: min-content;
 }
 
 .card-front > *:not(.card-front__bg),
 .card-back > *:not(.card-back__bg) {
   position: absolute;
+}
+
+.card-front__bg,
+.card-back__bg {
+  width: calc(250px * var(--bg-layout-top-grow-percentage));
 }
 
 .card-front__logo {
@@ -84,4 +114,16 @@ body {
   right: 60px;
   font-size: 1rem;
   letter-spacing: 0.2rem;
+}
+
+.card-front {
+  bottom: -15%;
+  left: 8.5%;
+  z-index: 2;
+}
+
+.card-back {
+  top: 15%;
+  right: 8.5%;
+  z-index: 1;
 }

@@ -1,4 +1,21 @@
-* {
+:root {
+  --layout-bg-top-scale-factor: 1;
+  --card-previews-content-scale-factor: 1;
+
+  @media (width > 450px) {
+    --layout-bg-top-scale-factor: 1.25;
+    --card-previews-content-scale-factor: 1.4;
+  }
+
+  @media (width > 650px) {
+    --layout-bg-top-scale-factor: 1.5;
+    --card-previews-content-scale-factor: 1.8;
+  }
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -12,18 +29,6 @@ img {
   display: block;
 }
 
-html {
-  --bg-layout-top-grow-percentage: 1;
-
-  @media (width > 450px) {
-    --bg-layout-top-grow-percentage: 1.25;
-  }
-
-  @media (width > 650px) {
-    --bg-layout-top-grow-percentage: 1.5;
-  }
-}
-
 body {
   font-family: Space Grotesk, sans-serif;
   min-inline-size: 360px;
@@ -31,8 +36,8 @@ body {
 
 .layout-bg {
   display: grid;
-  grid-template-rows: calc(215px * var(--bg-layout-top-grow-percentage)) calc(
-      215px * var(--bg-layout-top-grow-percentage)
+  grid-template-rows: calc(215px * var(--layout-bg-top-scale-factor)) calc(
+      215px * var(--layout-bg-top-scale-factor)
     );
 
   @media (width > 1000px) {
@@ -58,9 +63,9 @@ body {
   align-items: center;
 }
 
-.cards-preview {
+.card-previews {
   position: absolute;
-  inline-size: calc(360px * var(--bg-layout-top-grow-percentage));
+  inline-size: calc(360px * var(--layout-bg-top-scale-factor));
   block-size: 100%;
   inset: 0;
   margin: auto;
@@ -71,6 +76,7 @@ body {
   position: absolute;
   color: #fff;
   max-inline-size: min-content;
+  letter-spacing: 0.25rem;
 }
 
 .card-front > *:not(.card-front__bg),
@@ -80,40 +86,37 @@ body {
 
 .card-front__bg,
 .card-back__bg {
-  width: calc(250px * var(--bg-layout-top-grow-percentage));
+  width: calc(250px * var(--layout-bg-top-scale-factor));
 }
 
 .card-front__logo {
-  top: 30px;
-  left: 30px;
+  top: 15%;
+  left: 8%;
+  inline-size: calc(40px * var(--card-previews-content-scale-factor));
 }
 
 .card-front__number {
   top: 55%;
-  left: 30px;
-  font-size: 1.75rem;
-  letter-spacing: 0.2rem;
+  left: 8%;
+  font-size: calc(0.75rem * var(--card-previews-content-scale-factor));
 }
 
 .card-front__name {
   top: 80%;
-  left: 30px;
-  font-size: 0.8rem;
-  letter-spacing: 0.2rem;
+  left: 8%;
+  font-size: calc(0.5rem * var(--card-previews-content-scale-factor));
 }
 
 .card-front__expiry {
   top: 80%;
-  right: 30px;
-  font-size: 0.8rem;
-  letter-spacing: 0.2rem;
+  right: 8%;
+  font-size: calc(0.5rem * var(--card-previews-content-scale-factor));
 }
 
 .card-back__cvc {
-  top: 45%;
-  right: 60px;
-  font-size: 1rem;
-  letter-spacing: 0.2rem;
+  bottom: 44%;
+  right: 12%;
+  font-size: calc(0.75rem * var(--card-previews-content-scale-factor));
 }
 
 .card-front {

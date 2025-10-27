@@ -39,6 +39,7 @@ body {
   grid-template-rows: calc(215px * var(--layout-bg-top-scale-factor)) calc(
       215px * var(--layout-bg-top-scale-factor)
     );
+  gap: 100px;
 
   @media (width > 1000px) {
     grid-template-rows: none;
@@ -66,16 +67,23 @@ body {
 .card-previews {
   position: absolute;
   inline-size: calc(360px * var(--layout-bg-top-scale-factor));
-  block-size: 100%;
   inset: 0;
   margin: auto;
+
+  @media (width > 1000px) {
+    inline-size: 80%;
+    block-size: 100%;
+  }
 }
 
 .card-front,
 .card-back {
   position: absolute;
   color: #fff;
+  min-inline-size: min-content;
   max-inline-size: min-content;
+  min-block-size: min-content;
+  max-block-size: max-content;
   letter-spacing: 0.25rem;
 }
 
@@ -123,10 +131,20 @@ body {
   bottom: -15%;
   left: 8.5%;
   z-index: 2;
+
+  @media (width > 1000px) {
+    top: 20%;
+    left: 50%;
+  }
 }
 
 .card-back {
   top: 15%;
   right: 8.5%;
   z-index: 1;
+
+  @media (width > 1000px) {
+    top: 47%;
+    left: 80%;
+  }
 }

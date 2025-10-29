@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+main {
+  padding-block-start: 20px;
+}
+
+section {
+  padding-block: 100px;
+}
+
+.examples {
+  margin-block-start: 60px;
+}
+
+/* Text lines */
+
+.example-text-lines {
+  background-color: rgb(0, 162, 255);
+  display: grid;
+  place-items: center;
+}
+
+.example-text-lines > p {
+  display: inline-block;
+  position: relative;
+}
+
+.example-text-lines > p::before,
+.example-text-lines > p::after {
+  content: "";
+  display: block;
+  background-color: rgb(255, 166, 0);
+  height: 20%;
+  width: 100%;
+  position: absolute;
+}
+
+.example-text-lines > p::before {
+  top: -20%;
+}
+
+/* Emoji content */
+
+.example-content-emoji {
+  background-color: #00ffaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-content-emoji > p::before {
+  content: "🇦🇷  ";
+}
+
+/* Quotes content */
+
+.example-content-quotes {
+  background-color: rgb(235, 103, 180);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.example-content-quotes > p::before {
+  content: open-quote;
+}
+
+.example-content-quotes > p::after {
+  content: close-quote;
+}
+
+/* Tooltip */
+
+.example-tooltip {
+  background-color: #d6b350;
+  display: grid;
+  place-items: center;
+}
+
+.example-tooltip > a:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.example-tooltip > a {
+  position: relative;
+  display: inline-block;
+}
+
+.example-tooltip > a::before {
+  content: attr(data-tooltip);
+  background-color: rgb(134, 134, 134);
+  color: #fff;
+  display: block;
+  position: absolute;
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 0.75em;
+  bottom: 120%;
+  transform: translateX(-50%) scale(0);
+  left: 50%;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity ease-out 100ms;
+}

@@ -60,7 +60,7 @@ section {
 }
 
 .example-content-emoji > p::before {
-  content: "🇦🇷  ";
+  content: "😊  ";
 }
 
 /* Quotes content */
@@ -113,4 +113,79 @@ section {
   white-space: nowrap;
   opacity: 0;
   transition: opacity ease-out 100ms;
+}
+
+/* Separator */
+
+.example-separator {
+  display: grid;
+  place-items: center;
+  background-color: #397580;
+  position: relative;
+}
+
+.example-separator::before,
+.example-separator::after {
+  content: "";
+  background-color: #397580;
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+}
+
+.example-separator::before {
+  transform: skew(0, -20deg);
+  left: 50%;
+  bottom: -5%;
+}
+
+.example-separator::after {
+  transform: skew(0, 20deg);
+  right: 50%;
+  bottom: -5%;
+}
+
+/* Clip path */
+
+.example-clip-path {
+  display: grid;
+  place-items: center;
+  background-color: #6da83d;
+}
+
+.example-clip-path > img {
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  ); /* https://bennettfeely.com/clippy/ */
+}
+
+/* Angle */
+
+.example-angle-1,
+.example-angle-2 {
+  display: grid;
+  place-items: center;
+}
+
+.example-angle-1 {
+  background-color: #3f3da8;
+  clip-path: polygon(0 0, 0 100%, 100% calc(100% - 10vw), 100% 0);
+  margin-bottom: -10vw;
+  z-index: 1;
+}
+
+.example-angle-2 {
+  background-color: #9da83d;
 }
